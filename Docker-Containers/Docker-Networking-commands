@@ -1,0 +1,14 @@
+- Show networks 
+>docker network ls
+
+- Inspect a network
+>docker network inspect <network-name>	
+
+- Create a network "bridge type is the default value"
+>docker network create <network-name> —driver bridge
+
+— Attach a network to container 
+>docker network connect <network-name> <container-name>
+
+- Detach a network from container
+>docker network disconnect

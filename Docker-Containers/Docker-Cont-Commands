@@ -1,0 +1,31 @@
+# The equivalent of docker container ps
+>docker container ls
+
+## Run an nginx container, mysql, and a httpd server all of them in a detach mode
+>docker container run -d --name nginx -p 80:80 nginx
+
+## Running mysql use the --env for random password 
+>docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -p 3306:3306 mysql
+
+>docker container run -d --name httpd -p 8080:80 httpd
+
+## Find the random password generated for accessing mysql db
+
+>docker container logs mysql
+
+## List processes running inside a container 
+>docker container top mysql
+
+## For more details about a container
+>docker  container inspect container-name
+
+## Get inside the container  ssh to it
+## Gives you a terminal inside the running container start a new container
+>docker container run -it  —name proxy nginx bash 
+
+##  Execute commands in a running container jump to my container "Already exists" to execute some commands
+>docker container exec -it  mysql bash
+
+## stop the running container before remove them
+>docker container stop nginx mysql httpd 
+> docker container rm nginx mysql httpd
