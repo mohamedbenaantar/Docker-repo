@@ -15,6 +15,6 @@
 > brew install docker
 
 ### 5. connect to your remote server using SSH 
-> ssh -i <public-key> username@public-ip
+> ssh -i public-key username@public-ip
 
 
