@@ -1,0 +1,3 @@
+### ignore the key for accessing the vm
+*.pem
+    

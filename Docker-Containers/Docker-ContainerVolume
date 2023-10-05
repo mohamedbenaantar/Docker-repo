@@ -1,0 +1,14 @@
+1. Running a container from mysql Image
+>docker container run -d --name mydb -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+2. list all volumes exist on the local
+docker volume ls.   ##Copied the volume ID
+3. Use the volume ID taken
+>docker volume inspect <volume-ID>
+## You will. see on the source Mounts block the location taken from the host to that container
+4. stop and remove the container
+>docker container stop mydb
+>docker container rm mydb
+5. NOW do again 
+>docker volume ls 
+“You still able to see the volume means not removing the volume while removing the container”
+WHAT I want to say is that “volume mapping” is for adding a friendly name to that volume with more options to create or attach an existing volume to the container.

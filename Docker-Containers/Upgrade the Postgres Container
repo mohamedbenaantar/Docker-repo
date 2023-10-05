@@ -1,0 +1,15 @@
+## Upgrade from 12 to 12-bookworm Postgres required a password to start
+1. Create a volume
+>docker volume create pgsql
+
+2. Create a container from 15.1 version
+>docker run -d --name pgsql1 -e POSTGRES_PASSWORD=mypass -v pgsql:/var/lib/postgresql/data postgres:12
+
+3. Check logs and stop container
+>docker container logs pgsql1
+
+4. Create a new version mapping the same volume
+>docker run -d --name pgsql2 -e POSTGRES_PASSWORD=mypass -v pgsql:/var/lib/postgresql/data postgres:12-bookworm
+
+5. Check logs and stop container
+>docker container logs pgsql2

@@ -21,6 +21,7 @@
 
 ## Get inside the container  ssh to it
 ## Gives you a terminal inside the running container start a new container
+## Get into the shell of a constainer
 >docker container run -it  —name proxy nginx bash 
 
 ##  Execute commands in a running container jump to my container "Already exists" to execute some commands
@@ -28,4 +29,4 @@
 
 ## stop the running container before remove them
 >docker container stop nginx mysql httpd 
-> docker container rm nginx mysql httpd
+>docker container rm nginx mysql httpd
