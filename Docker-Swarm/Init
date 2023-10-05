@@ -1,0 +1,39 @@
+1. Create 3VMS
+
+2. Run the docker shell script on each node
+
+3. add the following command into the node01 manager
+>docker swarm init 
+
+4. JOIN the workers 
+>docker swarm join --token <TOKEN-ID>
+
+## to check the join 
+>docker node ls "On the node manager"
+
+## Update the node2 to be manager run it from the Leader
+>docker node update --role manager node02
+
+## run it again 
+>docker node ls  // node02 become reachable
+
+>docker service create --replicas 3 alpine 8.8.8.8
+
+>docker service ls
+
+## List all tasks
+>docker service ps <service-name>
+
+## Overlay network
+>docker network create --driver overlay mydrupal
+
+>docker service create --name pgsql --network mydrupal -e POSTGRES_PASSWORD=mypass postgres
+
+>docker service create --name drupal --network mydrupal -p 80:80 drupal
+
+>docker service ls
+
+## to see the service is running on which node
+>docker service ps drupal
+
+## even it is running on host2 any IP address can access the service -- Routing Mesh 
